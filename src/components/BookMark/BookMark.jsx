@@ -1,34 +1,20 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import './BookMark.css'
+import BookedBlogItem from '../BookedBlogItem/BookedBlogItem';
 
-const BookMark = () => {
-    
-    
-    
-
+const BookMark = ({bookedBlogs}) => {
+    const totalReadTime = bookedBlogs.reduce((total, curr)=>total + curr.readTime, 0)
     return (
         <div className='side-container'>
             <div className="spent-time">
-                <h3>Spent time on read : 177 min</h3>
+                <h3>Spent time on read : {totalReadTime} min</h3>
             </div>
             <div className="bookMark-container">
-                <h3>Bookmarked Blogs : 8</h3>
-                <div className="bookMark">
-                    <h5>Master Microsoft Power Platform and Become an In-Demand!</h5>
-                </div>
-                <div className="bookMark">
-                    <h5>Master Microsoft Power Platform and Become an In-Demand!</h5>
-                </div>
-                <div className="bookMark">
-                    <h5>Master Microsoft Power Platform and Become an In-Demand!</h5>
-                </div>
-                <div className="bookMark">
-                    <h5>Master Microsoft Power Platform and Become an In-Demand!</h5>
-                </div>
-                <div className="bookMark">
-                    <h5>Master Microsoft Power Platform and Become an In-Demand!</h5>
-                </div>
+                <h3>Bookmarked Blogs : {bookedBlogs.length}</h3>
+                {
+                    bookedBlogs.map(bookedItem => <BookedBlogItem key={bookedItem.id} bookedItem={bookedItem}></BookedBlogItem>)
+                }
             </div>
         </div>
     );

@@ -1,0 +1,25 @@
+.side-container{
+    margin-top: 70px;
+    position: sticky;
+    top: 0;
+    
+}
+.spent-time{
+    background-color: #efedfd;
+    border: 1px solid #8b7cf0;
+    border-radius: 10px;
+    padding: 5%;
+    text-align: center;
+}
+.bookMark-container{
+    margin-top: 10px;
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 5px;
+}
+.bookMark{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}

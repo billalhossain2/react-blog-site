@@ -3,13 +3,15 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 import './Blog.css'
+import { toast } from 'react-toastify';
 
-const Blog = (props) => {
+const Blog = ({blog, bookedBlogs, setBookedBlogs}) => {
     // console.log(props.blog.cover)
-    const blog = props.blog
-    const {id, cover, BlogName, userImg, userName, publishDate, readTime, hashTag} = props.blog;
-    
-    
+    const {id, cover, BlogName, userImg, userName, publishDate, readTime, hashTag} = blog;
+    const handleMarkRead = (blogItem)=>{
+        setBookedBlogs([...bookedBlogs, blogItem])
+        toast("Booking was successful", {autoClose:1000})
+    }
  
     return (
         <div className='blog-container'>
@@ -38,7 +40,7 @@ const Blog = (props) => {
                 <p>{hashTag}</p>
             </div>
             <div className="mark-read">
-                <a href="#">Mark as read</a>
+                <button onClick={()=>handleMarkRead(blog)}>Mark as read</button>
             </div>
         </div>
     );

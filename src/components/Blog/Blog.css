@@ -48,8 +48,21 @@ p{
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.mark-read a{
+/* .mark-read a{
    text-decoration: underline;
    color: blue;
    font-weight: 500;
+} */
+
+/* Modified css  */
+.mark-read button{
+   border:solid 1px blue;
+   padding:10px;
+   transition: 0.3s;
+   color:blue;
+}
+
+.mark-read button:hover{
+   background-color: blue;
+   color:#fff;
 }

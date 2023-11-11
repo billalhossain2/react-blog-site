@@ -7,14 +7,13 @@ import BookMark from '../BookMark/BookMark';
 
 const BlogPage = () => {
     const [blogs, setBlogs] = useState([]);
-
-    // cosnt [minutes, setMinutes] = useState(0);
-
+    const [bookedBlogs, setBookedBlogs] = useState([]);
+    console.log('Running.............')
     useEffect ( () => {
         fetch('../../../fakeData/blogs.json')
         .then(res => res.json())
         .then(data => setBlogs(data))
-    })
+    }, [])
     // console.log(blogs)
 
     // const readTimeHadler = () => {
@@ -28,11 +27,13 @@ const BlogPage = () => {
                     blogs.map(blog => <Blog
                     key={blog.id}
                     blog={blog}
+                    bookedBlogs={bookedBlogs}
+                    setBookedBlogs={setBookedBlogs}
                     ></Blog>  )
                 }
             </div>
             
-            <BookMark></BookMark>
+            <BookMark bookedBlogs={bookedBlogs} setBookedBlogs={setBookedBlogs}></BookMark>
         </div>
     );
 };
